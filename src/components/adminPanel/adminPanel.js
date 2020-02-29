@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react';
-import UserList from '../adminPanel/adminPanel';
+import UserList from '../userList/userList';
 import UpdateUser from '../updateUser/updateUser';
-import { users } from '../../api/users';
-const adminPanel = () => {
+import { USERS } from '../../api/users';
+const AdminPanel = () => {
 	return (
 		<Fragment>
 			<div className="container">
-				<UserList users={users} />
+				<UserList users={USERS} />
 				<UpdateUser />
 			</div>
 		</Fragment>
 	);
 };
 
-export default adminPanel;
+export default AdminPanel;

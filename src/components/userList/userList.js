@@ -5,7 +5,15 @@ const UserList = ({ users }) => {
 		<Fragment>
 			<ul className="list-group">
 				{users.map((user, index, self) => (
-					<User key={index} />
+					<User
+						key={index}
+						imageUrl={user.photo}
+						name={user.name}
+						company={user.company}
+						email={user.email}
+						phone={user.phone}
+						address={user.address}
+					/>
 				))}
 			</ul>
 		</Fragment>

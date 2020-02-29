@@ -1,13 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
+import AdminPanel from './components/adminPanel/adminPanel';
 
 function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
+	return (
+		<div className="App">
+			{' '}
+			<AdminPanel />
+		</div>
+	);
 }
 
 export default App;
