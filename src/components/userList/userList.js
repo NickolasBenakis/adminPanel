@@ -5,7 +5,7 @@ const UserList = ({ users }) => {
 	return (
 		<Fragment>
 			<ul className="list-group left-container">
-				{users.map((user, index, self) => (
+				{users.map((user, index) => (
 					<User
 						key={index}
 						imageUrl={user.photo}

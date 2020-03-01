@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
 import './user.scss';
 
-const User = ({ name, phone, email, address, imageUrl, company, ref }) => {
+const User = ({ name, phone, email, address, imageUrl, company }) => {
 	const handleCLick = e => {
+		const allElements = document.querySelectorAll('.active');
+		allElements.forEach(el => el.classList.remove('active'));
 		if (!e.currentTarget.classList.contains('active')) {
 			e.currentTarget.classList.add('active');
 		} else {

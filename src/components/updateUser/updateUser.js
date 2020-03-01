@@ -65,7 +65,11 @@ const UpdateUser = () => {
 						placeholder="Enter Company"
 					/>
 				</div>
-				<button type="submit" className="btn btn-primary float-right">
+				<button
+					type="submit"
+					className="btn btn-primary float-right"
+					disabled={true}
+				>
 					Save
 				</button>
 			</form>
