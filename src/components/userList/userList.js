@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import User from '../user/user';
+import './userList.scss';
 const UserList = ({ users }) => {
 	return (
 		<Fragment>
-			<ul className="list-group">
+			<ul className="list-group left-container">
 				{users.map((user, index, self) => (
 					<User
 						key={index}

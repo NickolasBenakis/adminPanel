@@ -5,13 +5,44 @@
 .list-group-item {
     cursor: pointer;
     transition: all .2s ease-in-out;
+    border: none;
+
+    &:hover {
+        background-color: #e8e8e8;
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media (max-width:768px) {
+            display: none;
+        }
+    }
 }
 
-// .user-list-item {
-//     cursor: pointer;
-//     transition: all .3s ease-in-out;
-// }
+.circle-image {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+}
 
-// .user-list-item:hover {
-//     background-color: royalblue;
-// }
+.card-body {
+    display: flex;
+}
+
+.flex-column-center {}
+
+.list-group-item.active {
+    background-color: #1b68b3;
+}
+
+.text-muted {
+    color: darkgray !important;
+}
+
+.word-inline {
+    white-space: nowrap;
+    overflow-x: hidden;
+}
