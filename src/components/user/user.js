@@ -1,7 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import './user.scss';
+import { Store } from '../../store/storeContext';
 
 const User = ({ name, phone, email, address, imageUrl, company }) => {
+	const { state, dispatch } = useContext(Store);
+
 	const handleCLick = e => {
 		const allElements = document.querySelectorAll('.active');
 		allElements.forEach(el => el.classList.remove('active'));
@@ -10,6 +13,10 @@ const User = ({ name, phone, email, address, imageUrl, company }) => {
 		} else {
 			e.currentTarget.classList.remove('active');
 		}
+		dispatch({
+			type: 'SELECT_USER',
+			payload: { name, phone, email, address, imageUrl, company }
+		});
 	};
 	return (
 		<Fragment>
@@ -17,6 +24,7 @@ const User = ({ name, phone, email, address, imageUrl, company }) => {
 				className="list-group-item user-list-item list-group-item-action"
 				onClick={handleCLick}
 			>
+				{console.log(state)}
 				<div>
 					<div className="card-body">
 						<img src={imageUrl} alt="userImage" className="circle-image" />
@@ -33,4 +41,4 @@ const User = ({ name, phone, email, address, imageUrl, company }) => {
 	);
 };
 
-export default User;
+export default React.memo(User);
