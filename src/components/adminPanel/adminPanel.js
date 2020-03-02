@@ -9,7 +9,7 @@ const AdminPanel = () => {
 		<Fragment>
 			<StoreProvider>
 				<div className="container-fluid admin-panel d-flex m-5-auto shadow-lg p-inherit">
-					<UserList users={USERS} />
+					<UserList />
 					<UpdateUser />
 				</div>
 			</StoreProvider>

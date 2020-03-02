@@ -11,13 +11,23 @@ const initialState = {
 		email: '',
 		phone: '',
 		address: ''
-	}
+	},
+	users: []
 };
 
 function reducer(state, action) {
 	switch (action.type) {
+		case 'FETCH_USERS':
+			return { ...state, users: action.payload };
 		case 'SELECT_USER':
 			return { ...state, selectedUser: action.payload };
+		case 'UPDATE_USER_DATA':
+			initialState.users.forEach((el, index, self) => {
+				if (el.id === action.payload.id) {
+					el[action.payload.key] = action.payload.value;
+				}
+			});
+			return { ...state };
 		default:
 			return state;
 	}

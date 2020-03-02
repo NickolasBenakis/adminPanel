@@ -4,6 +4,9 @@ import { Store } from '../../store/storeContext';
 const UpdateUser = () => {
 	const { state, dispatch } = useContext(Store);
 
+	const handleChange = e => {
+		console.log(e);
+	};
 	return (
 		<Fragment>
 			{state.selectedUser.id === '' ? (
@@ -19,7 +22,7 @@ const UpdateUser = () => {
 							className="form-control"
 							id="name"
 							placeholder="Enter Name"
-							value={state.selectedUser.name}
+							defaultValue={state.selectedUser.name}
 						/>
 					</div>
 					<div className="form-group row">
@@ -34,7 +37,7 @@ const UpdateUser = () => {
 							className="form-control"
 							id="email"
 							placeholder="Enter Email"
-							value={state.selectedUser.email}
+							defaultValue={state.selectedUser.email}
 						/>
 					</div>
 					<div className="form-group row">
@@ -49,7 +52,7 @@ const UpdateUser = () => {
 							className="form-control"
 							id="phone"
 							placeholder="Enter Phone"
-							value={state.selectedUser.phone}
+							defaultValue={state.selectedUser.phone}
 						/>
 					</div>
 					<div className="form-group row">
@@ -64,7 +67,7 @@ const UpdateUser = () => {
 							className="form-control"
 							id="address"
 							placeholder="Enter address"
-							value={state.selectedUser.address}
+							defaultValue={state.selectedUser.address}
 						/>
 					</div>
 					<div className="form-group row">
@@ -79,7 +82,7 @@ const UpdateUser = () => {
 							className="form-control"
 							id="company"
 							placeholder="Enter Company"
-							value={state.selectedUser.company}
+							defaultValue={state.selectedUser.company}
 						/>
 					</div>
 					<button
