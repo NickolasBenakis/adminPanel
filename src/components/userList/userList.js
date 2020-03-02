@@ -7,7 +7,7 @@ const UserList = () => {
 	const { state } = useContext(Store);
 	return (
 		<Fragment>
-			<ul className="list-group left-container col-5">
+			<ul className="list-group left-container col-3 col-md-5">
 				{state.users.map((user, index) => {
 					return (
 						<User

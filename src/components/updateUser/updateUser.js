@@ -53,7 +53,7 @@ const UpdateUser = () => {
 				</span>
 			) : (
 				<form
-					className="right-container m-50-auto col-6"
+					className="right-container m-50-auto col-7 col-md-6"
 					onSubmit={handleSubmit}>
 					<div className="form-group row">
 						<label htmlFor="name" className="col-sm-2 col-form-label no-p-side">

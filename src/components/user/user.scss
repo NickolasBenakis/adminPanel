@@ -1,49 +1,52 @@
 .card {
-	width: 18rem;
+    width: 18rem;
 }
 
 .list-group-item {
-	cursor: pointer;
-	transition: all 0.2s ease-in-out;
-	border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: none;
 
-	&:hover {
-		background-color: #e8e8e8;
-	}
+    &:hover {
+        background-color: #e8e8e8;
+    }
 
-	&__details {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+    &__details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-		@media (max-width: 768px) {
-			display: none;
-		}
-	}
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
 }
 
 .circle-image {
-	border-radius: 50%;
-	width: 64px;
-	height: 64px;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
 }
 
 .card-body {
-	display: flex;
+    display: flex;
+
+    @media (max-width: 768px) {
+        justify-content: center;
+    }
 }
 
-.flex-column-center {
-}
+.flex-column-center {}
 
 .list-group-item.active {
-	background-color: #1b68b3;
+    background-color: #1b68b3;
 }
 
 .text-muted {
-	color: darkgray !important;
+    color: darkgray !important;
 }
 
 .word-inline {
-	white-space: nowrap;
-	overflow-x: hidden;
+    white-space: nowrap;
+    overflow-x: hidden;
 }

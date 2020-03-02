@@ -24,7 +24,8 @@
     "react-scripts": "3.4.0"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "surge": "^0.21.3"
   },
   "eslintConfig": {
     "extends": "react-app"
