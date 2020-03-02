@@ -1,14 +1,22 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 import './updateUser.scss';
 import { StoreContext } from '../../store/storeContext';
+import { useObserver } from 'mobx-react';
 
 const UpdateUser = () => {
 	const store = useContext(StoreContext);
 
-	// const handleChange = e => {
-	// 	console.log(e);
-	// };
-	return (
+	useEffect(() => {
+		console.log(window.location.search.substring(4));
+	});
+	const handleChange = e => {
+		console.log(e.currentTarget.id, e.currentTarget.value);
+
+		store.updateSelectedUser(e.currentTarget.id, e.currentTarget.value);
+		React.forceUpdate();
+	};
+
+	return useObserver(() => (
 		<Fragment>
 			{store.selectedUser.id === '' ? (
 				<span></span>
@@ -23,7 +31,8 @@ const UpdateUser = () => {
 							className="form-control"
 							id="name"
 							placeholder="Enter Name"
-							defaultValue={store.selectedUser.name}
+							value={store.selectedUser.name}
+							onChange={handleChange}
 						/>
 					</div>
 					<div className="form-group row">
@@ -96,7 +105,7 @@ const UpdateUser = () => {
 				</form>
 			)}
 		</Fragment>
-	);
+	));
 };
 
 export default UpdateUser;

@@ -13,6 +13,7 @@ const UserList = () => {
 					return (
 						<User
 							key={index}
+							id={user.id}
 							imageUrl={user.photo}
 							name={user.name}
 							company={user.company}

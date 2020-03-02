@@ -1,9 +1,12 @@
 import React, { Fragment, useContext } from 'react';
 import './user.scss';
 import { StoreContext } from '../../store/storeContext';
+import { useObserver } from 'mobx-react';
+import { useHistory } from 'react-router-dom';
 
-const User = ({ name, phone, email, address, imageUrl, company }) => {
+const User = ({ id, name, phone, email, address, imageUrl, company }) => {
 	const store = useContext(StoreContext);
+	const history = useHistory();
 
 	const handleCLick = e => {
 		e.preventDefault();
@@ -14,9 +17,11 @@ const User = ({ name, phone, email, address, imageUrl, company }) => {
 		} else {
 			e.currentTarget.classList.remove('active');
 		}
-		store.selectedUser = { name, phone, email, address, imageUrl, company };
+		history.push('/user?id=' + id);
+		store.selectedUser = { id, name, phone, email, address, imageUrl, company };
+		console.log(store);
 	};
-	return (
+	return useObserver(() => (
 		<Fragment>
 			<li
 				className="list-group-item user-list-item list-group-item-action"
@@ -35,7 +40,7 @@ const User = ({ name, phone, email, address, imageUrl, company }) => {
 				</div>
 			</li>
 		</Fragment>
-	);
+	));
 };
 
 export default React.memo(User);
