@@ -5,14 +5,51 @@ const UpdateUser = () => {
 	const { state, dispatch } = useContext(Store);
 
 	const handleChange = e => {
-		console.log(e);
+		e.preventDefault();
+		dispatch({
+			type: 'UPDATE_SELECTED_USER',
+			payload: {
+				key: e.currentTarget.id,
+				value: e.currentTarget.value
+			}
+		});
 	};
+	const handleSubmit = e => {
+		e.preventDefault();
+		dispatch({
+			type: 'SAVE_USER',
+			payload: state.selectedUser
+		});
+	};
+
+	const hasDeepChanged = () => {
+		const el = state.users.find(
+			(el, index, self) => el.id === state.selectedUser.id
+		);
+		return JSON.stringify(el) === JSON.stringify(state.selectedUser);
+	};
+
+	const resetState = e => {
+		e.preventDefault();
+		dispatch({
+			type: 'RESET_USER',
+			payload: state.selectedUser
+		});
+	};
+
 	return (
 		<Fragment>
 			{state.selectedUser.id === '' ? (
-				<span></span>
+				<span className="muted-right-wrapper">
+					<h5 className="muted-right-container card-subtitle mb-2 text-muted ">
+						select user to update
+					</h5>
+				</span>
 			) : (
-				<form className="right-container m-50-auto col-6">
+				<form
+					className="right-container m-50-auto col-6"
+					onSubmit={handleSubmit}
+				>
 					<div className="form-group row">
 						<label htmlFor="name" className="col-sm-2 col-form-label no-p-side">
 							Name
@@ -22,7 +59,8 @@ const UpdateUser = () => {
 							className="form-control"
 							id="name"
 							placeholder="Enter Name"
-							defaultValue={state.selectedUser.name}
+							value={state.selectedUser.name}
+							onChange={handleChange}
 						/>
 					</div>
 					<div className="form-group row">
@@ -37,7 +75,8 @@ const UpdateUser = () => {
 							className="form-control"
 							id="email"
 							placeholder="Enter Email"
-							defaultValue={state.selectedUser.email}
+							value={state.selectedUser.email}
+							onChange={handleChange}
 						/>
 					</div>
 					<div className="form-group row">
@@ -52,7 +91,8 @@ const UpdateUser = () => {
 							className="form-control"
 							id="phone"
 							placeholder="Enter Phone"
-							defaultValue={state.selectedUser.phone}
+							value={state.selectedUser.phone}
+							onChange={handleChange}
 						/>
 					</div>
 					<div className="form-group row">
@@ -67,7 +107,8 @@ const UpdateUser = () => {
 							className="form-control"
 							id="address"
 							placeholder="Enter address"
-							defaultValue={state.selectedUser.address}
+							value={state.selectedUser.address}
+							onChange={handleChange}
 						/>
 					</div>
 					<div className="form-group row">
@@ -82,15 +123,29 @@ const UpdateUser = () => {
 							className="form-control"
 							id="company"
 							placeholder="Enter Company"
-							defaultValue={state.selectedUser.company}
+							value={state.selectedUser.company}
+							onChange={handleChange}
 						/>
 					</div>
 					<button
 						type="submit"
 						className="btn btn-primary float-right"
-						disabled={true}
+						disabled={hasDeepChanged()}
 					>
 						Save
+					</button>
+					<button
+						type="button"
+						className="btn btn-danger float-left"
+						disabled={hasDeepChanged()}
+						style={
+							!hasDeepChanged()
+								? { display: 'inline-block' }
+								: { display: 'none' }
+						}
+						onClick={resetState}
+					>
+						Cancel
 					</button>
 				</form>
 			)}

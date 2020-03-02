@@ -1,33 +1,28 @@
 import React, { Fragment, useContext } from 'react';
 import './user.scss';
 import { Store } from '../../store/storeContext';
+import classNames from 'classnames';
 
-const User = ({ name, phone, email, address, imageUrl, company }) => {
+const User = ({ id, name, phone, email, address, photo, company }) => {
 	const { state, dispatch } = useContext(Store);
-
-	const handleCLick = e => {
-		e.preventDefault();
-		const allElements = document.querySelectorAll('.active');
-		allElements.forEach(el => el.classList.remove('active'));
-		if (!e.currentTarget.classList.contains('active')) {
-			e.currentTarget.classList.add('active');
-		} else {
-			e.currentTarget.classList.remove('active');
-		}
+	const handleClick = () => {
 		dispatch({
 			type: 'SELECT_USER',
-			payload: { name, phone, email, address, imageUrl, company }
+			payload: { id, photo, name, company, email, phone, address }
 		});
 	};
+	const className = classNames(
+		'list-group-item user-list-item list-group-item-action',
+		{
+			active: id === state.selectedUser.id
+		}
+	);
 	return (
 		<Fragment>
-			<li
-				className="list-group-item user-list-item list-group-item-action"
-				onClick={handleCLick}
-			>
+			<li className={className} onClick={handleClick}>
 				<div>
 					<div className="card-body">
-						<img src={imageUrl} alt="userImage" className="circle-image" />
+						<img src={photo} alt="userImage" className="circle-image" />
 						<div className="col-12 text-left flex-column-center list-group-item__details">
 							<h5 className="card-title word-inline">{name}</h5>
 							<h6 className="card-subtitle mb-2 text-muted word-inline">

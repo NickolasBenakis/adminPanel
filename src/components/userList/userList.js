@@ -1,19 +1,10 @@
-import React, { Fragment, useContext, useEffect } from 'react';
+import React, { Fragment, useContext } from 'react';
 import User from '../user/user';
 import './userList.scss';
 import { Store } from '../../store/storeContext';
-import { USERS } from '../../api/users';
 
 const UserList = () => {
-	const { state, dispatch } = useContext(Store);
-
-	useEffect(() => {
-		dispatch({
-			action: 'FETCH_USERS',
-			payload: USERS
-		});
-	}, []);
-
+	const { state } = useContext(Store);
 	return (
 		<Fragment>
 			<ul className="list-group left-container col-5">
@@ -21,12 +12,13 @@ const UserList = () => {
 					return (
 						<User
 							key={index}
-							imageUrl={user.photo}
+							id={user.id}
 							name={user.name}
-							company={user.company}
-							email={user.email}
 							phone={user.phone}
+							email={user.email}
 							address={user.address}
+							photo={user.photo}
+							company={user.company}
 						/>
 					);
 				})}
@@ -35,4 +27,4 @@ const UserList = () => {
 	);
 };
 
-export default UserList;
+export default React.memo(UserList);

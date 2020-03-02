@@ -9,3 +9,17 @@
     padding-left: 0;
     padding-right: 0;
 }
+
+
+.muted-right-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+    .muted-right-container {
+        word-break: break-all;
+        white-space: pre-wrap;
+        padding: 10px;
+    }
+}
