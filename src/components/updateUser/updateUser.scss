@@ -1,25 +1,24 @@
 .right-container {
-    margin: 50px auto;
-    height: 500px;
-    text-align: left;
-    font-size: 14px;
+	margin: 50px auto;
+	height: 500px;
+	text-align: left;
+	font-size: 14px;
 }
 
 .no-p-side {
-    padding-left: 0;
-    padding-right: 0;
+	padding-left: 0;
+	padding-right: 0;
 }
 
-
 .muted-right-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
 
-    .muted-right-container {
-        word-break: break-all;
-        white-space: pre-wrap;
-        padding: 10px;
-    }
+	.muted-right-container {
+		word-break: break-all;
+		white-space: pre-wrap;
+		padding: 10px;
+	}
 }

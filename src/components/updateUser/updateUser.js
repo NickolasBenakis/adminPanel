@@ -1,6 +1,8 @@
 import React, { Fragment, useContext } from 'react';
 import './updateUser.scss';
 import { Store } from '../../store/storeContext';
+import classNames from 'classnames';
+
 const UpdateUser = () => {
 	const { state, dispatch } = useContext(Store);
 
@@ -37,6 +39,10 @@ const UpdateUser = () => {
 		});
 	};
 
+	const cancelBtnClass = classNames('btn btn-danger float-left', {
+		'd-none': hasDeepChanged()
+	});
+
 	return (
 		<Fragment>
 			{state.selectedUser.id === '' ? (
@@ -48,8 +54,7 @@ const UpdateUser = () => {
 			) : (
 				<form
 					className="right-container m-50-auto col-6"
-					onSubmit={handleSubmit}
-				>
+					onSubmit={handleSubmit}>
 					<div className="form-group row">
 						<label htmlFor="name" className="col-sm-2 col-form-label no-p-side">
 							Name
@@ -66,8 +71,7 @@ const UpdateUser = () => {
 					<div className="form-group row">
 						<label
 							htmlFor="email"
-							className="col-sm-2 col-form-label no-p-side"
-						>
+							className="col-sm-2 col-form-label no-p-side">
 							Email
 						</label>
 						<input
@@ -82,8 +86,7 @@ const UpdateUser = () => {
 					<div className="form-group row">
 						<label
 							htmlFor="phone"
-							className="col-sm-2 col-form-label no-p-side"
-						>
+							className="col-sm-2 col-form-label no-p-side">
 							Phone
 						</label>
 						<input
@@ -98,8 +101,7 @@ const UpdateUser = () => {
 					<div className="form-group row">
 						<label
 							htmlFor="address"
-							className="col-sm-2 col-form-label no-p-side"
-						>
+							className="col-sm-2 col-form-label no-p-side">
 							Address
 						</label>
 						<input
@@ -114,8 +116,7 @@ const UpdateUser = () => {
 					<div className="form-group row">
 						<label
 							htmlFor="company"
-							className="col-sm-2 col-form-label no-p-side"
-						>
+							className="col-sm-2 col-form-label no-p-side">
 							Company
 						</label>
 						<input
@@ -130,21 +131,14 @@ const UpdateUser = () => {
 					<button
 						type="submit"
 						className="btn btn-primary float-right"
-						disabled={hasDeepChanged()}
-					>
+						disabled={hasDeepChanged()}>
 						Save
 					</button>
 					<button
 						type="button"
-						className="btn btn-danger float-left"
+						className={cancelBtnClass}
 						disabled={hasDeepChanged()}
-						style={
-							!hasDeepChanged()
-								? { display: 'inline-block' }
-								: { display: 'none' }
-						}
-						onClick={resetState}
-					>
+						onClick={resetState}>
 						Cancel
 					</button>
 				</form>
