@@ -1,10 +1,7 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment } from 'react';
 import './user.scss';
-import { Store } from '../../store/storeContext';
 
 const User = ({ name, phone, email, address, imageUrl, company }) => {
-	const { state, dispatch } = useContext(Store);
-
 	const handleCLick = e => {
 		e.preventDefault();
 		const allElements = document.querySelectorAll('.active');
@@ -14,10 +11,6 @@ const User = ({ name, phone, email, address, imageUrl, company }) => {
 		} else {
 			e.currentTarget.classList.remove('active');
 		}
-		dispatch({
-			type: 'SELECT_USER',
-			payload: { name, phone, email, address, imageUrl, company }
-		});
 	};
 	return (
 		<Fragment>

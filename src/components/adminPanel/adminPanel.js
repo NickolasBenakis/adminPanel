@@ -1,18 +1,17 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import UserList from '../userList/userList';
 import UpdateUser from '../updateUser/updateUser';
 import { USERS } from '../../api/users';
 import './adminPanel.scss';
-import { StoreProvider } from '../../store/storeContext';
 const AdminPanel = () => {
+	const [users, setUsers] = useState(USERS);
+	const [selectedUser, setSelectedUser] = useState({});
 	return (
 		<Fragment>
-			<StoreProvider>
-				<div className="container-fluid admin-panel d-flex m-5-auto shadow-lg p-inherit">
-					<UserList />
-					<UpdateUser />
-				</div>
-			</StoreProvider>
+			<div className="container-fluid admin-panel d-flex m-5-auto shadow-lg p-inherit">
+				<UserList users={users} />
+				<UpdateUser selectedUser={selectedUser} />
+			</div>
 		</Fragment>
 	);
 };

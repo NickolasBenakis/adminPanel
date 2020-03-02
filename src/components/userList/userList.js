@@ -1,23 +1,12 @@
-import React, { Fragment, useContext, useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import User from '../user/user';
 import './userList.scss';
-import { Store } from '../../store/storeContext';
-import { USERS } from '../../api/users';
 
-const UserList = () => {
-	const { state, dispatch } = useContext(Store);
-
-	useEffect(() => {
-		dispatch({
-			action: 'FETCH_USERS',
-			payload: USERS
-		});
-	}, []);
-
+const UserList = ({ users }) => {
 	return (
 		<Fragment>
 			<ul className="list-group left-container col-5">
-				{state.users.map((user, index) => {
+				{users.map((user, index) => {
 					return (
 						<User
 							key={index}

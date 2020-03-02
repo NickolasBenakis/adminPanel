@@ -1,15 +1,12 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment } from 'react';
 import './updateUser.scss';
-import { Store } from '../../store/storeContext';
-const UpdateUser = () => {
-	const { state, dispatch } = useContext(Store);
-
+const UpdateUser = ({ selectedUser }) => {
 	const handleChange = e => {
 		console.log(e);
 	};
 	return (
 		<Fragment>
-			{state.selectedUser.id === '' ? (
+			{!Object.keys(selectedUser).length ? (
 				<span></span>
 			) : (
 				<form className="right-container m-50-auto col-6">
@@ -22,7 +19,7 @@ const UpdateUser = () => {
 							className="form-control"
 							id="name"
 							placeholder="Enter Name"
-							defaultValue={state.selectedUser.name}
+							defaultValue={selectedUser.name}
 						/>
 					</div>
 					<div className="form-group row">
@@ -37,7 +34,7 @@ const UpdateUser = () => {
 							className="form-control"
 							id="email"
 							placeholder="Enter Email"
-							defaultValue={state.selectedUser.email}
+							defaultValue={selectedUser.email}
 						/>
 					</div>
 					<div className="form-group row">
@@ -52,7 +49,7 @@ const UpdateUser = () => {
 							className="form-control"
 							id="phone"
 							placeholder="Enter Phone"
-							defaultValue={state.selectedUser.phone}
+							defaultValue={selectedUser.phone}
 						/>
 					</div>
 					<div className="form-group row">
@@ -67,7 +64,7 @@ const UpdateUser = () => {
 							className="form-control"
 							id="address"
 							placeholder="Enter address"
-							defaultValue={state.selectedUser.address}
+							defaultValue={selectedUser.address}
 						/>
 					</div>
 					<div className="form-group row">
@@ -82,7 +79,7 @@ const UpdateUser = () => {
 							className="form-control"
 							id="company"
 							placeholder="Enter Company"
-							defaultValue={state.selectedUser.company}
+							defaultValue={selectedUser.company}
 						/>
 					</div>
 					<button
