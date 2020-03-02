@@ -1,23 +1,15 @@
-import React, { Fragment, useContext, useEffect } from 'react';
+import React, { Fragment, useContext } from 'react';
 import User from '../user/user';
 import './userList.scss';
-import { Store } from '../../store/storeContext';
-import { USERS } from '../../api/users';
-
+import { StoreContext } from '../../store/storeContext';
+import { useObserver } from 'mobx-react';
 const UserList = () => {
-	const { state, dispatch } = useContext(Store);
+	const store = useContext(StoreContext);
 
-	useEffect(() => {
-		dispatch({
-			action: 'FETCH_USERS',
-			payload: USERS
-		});
-	}, []);
-
-	return (
+	return useObserver(() => (
 		<Fragment>
 			<ul className="list-group left-container col-5">
-				{state.users.map((user, index) => {
+				{store.users.map((user, index) => {
 					return (
 						<User
 							key={index}
@@ -32,7 +24,7 @@ const UserList = () => {
 				})}
 			</ul>
 		</Fragment>
-	);
+	));
 };
 
 export default UserList;
