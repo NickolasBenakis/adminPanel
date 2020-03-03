@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import './App.scss';
 import AdminPanel from './components/adminPanel/adminPanel';
 import { StoreProvider } from './store/storeContext';
@@ -9,9 +9,7 @@ function App() {
 			<Router>
 				<Route path="/">
 					<StoreProvider>
-						<Suspense fallback={<div>Loading...</div>}>
-							<AdminPanel />
-						</Suspense>
+						<AdminPanel />
 					</StoreProvider>
 				</Route>
 			</Router>
