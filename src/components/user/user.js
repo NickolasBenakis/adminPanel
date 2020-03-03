@@ -1,6 +1,7 @@
 import React, { Fragment, useContext } from 'react';
 import './user.scss';
 import { Store } from '../../store/storeContext';
+import { preFetchImg } from '../../utils/preFetchImg';
 import classNames from 'classnames';
 
 const User = ({ id, name, phone, email, address, photo, company }) => {
@@ -22,8 +23,12 @@ const User = ({ id, name, phone, email, address, photo, company }) => {
 			<li className={className} onClick={handleClick}>
 				<div>
 					<div className="card-body">
-						<img src={photo} alt="userImage" className="circle-image" />
-						<div className="col-12 text-left flex-column-center list-group-item__details">
+						<img
+							src={preFetchImg(photo)}
+							alt="userImage"
+							className="circle-image"
+						/>
+						<div className="col-10 text-left flex-column-center list-group-item__details">
 							<h5 className="card-title word-inline">{name}</h5>
 							<h6 className="card-subtitle mb-2 text-muted word-inline">
 								{email}
