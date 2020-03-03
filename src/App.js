@@ -1,4 +1,4 @@
-import React, { Suspense, Profiler } from 'react';
+import React, { Suspense } from 'react';
 import './App.scss';
 import AdminPanel from './components/adminPanel/adminPanel';
 import { StoreProvider } from './store/storeContext';
