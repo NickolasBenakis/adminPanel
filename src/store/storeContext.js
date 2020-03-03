@@ -59,6 +59,5 @@ function reducer(state, action) {
 export function StoreProvider({ children }) {
 	const [state, dispatch] = React.useReducer(reducer, initialState);
 	const value = React.useMemo(() => ({ state, dispatch }), [state, dispatch]);
-	console.log(value);
 	return <Store.Provider value={value}>{children}</Store.Provider>;
 }
