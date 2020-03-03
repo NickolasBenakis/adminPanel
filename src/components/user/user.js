@@ -6,6 +6,7 @@ import classNames from 'classnames';
 
 const User = ({ id, name, phone, email, address, photo, company }) => {
 	const { state, dispatch } = useContext(Store);
+
 	const handleClick = () => {
 		dispatch({
 			type: 'SELECT_USER',
