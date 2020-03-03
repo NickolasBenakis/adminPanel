@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.com/NickolasBenakis/adminPanel.svg?branch=master)](https://travis-ci.com/NickolasBenakis/adminPanel)
 
 # AdminPanel
 
