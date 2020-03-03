@@ -4,11 +4,11 @@ import './userList.scss';
 import { Store } from '../../store/storeContext';
 
 const UserList = () => {
-	const { state } = useContext(Store);
+	const { users } = useContext(Store).state;
 	return (
 		<Fragment>
 			<ul className="list-group left-container col-3 col-md-5">
-				{state.users.map((user, index) => {
+				{users.map((user, index) => {
 					return (
 						<User
 							key={index}

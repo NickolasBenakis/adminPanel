@@ -2,7 +2,6 @@ import React, { Fragment, useContext } from 'react';
 import './updateUser.scss';
 import { Store } from '../../store/storeContext';
 import classNames from 'classnames';
-
 const UpdateUser = () => {
 	const { state, dispatch } = useContext(Store);
 
@@ -147,4 +146,4 @@ const UpdateUser = () => {
 	);
 };
 
-export default UpdateUser;
+export default React.memo(UpdateUser);

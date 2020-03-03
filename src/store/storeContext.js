@@ -44,7 +44,13 @@ function reducer(state, action) {
 				selectedUser: state.users.find(user => user.id === action.payload.id)
 			};
 		case 'SELECT_USER':
-			return { ...state, selectedUser: action.payload };
+			if (
+				JSON.stringify(action.payload) === JSON.stringify(state.selectedUser)
+			) {
+				return state;
+			} else {
+				return { ...state, selectedUser: action.payload };
+			}
 		default:
 			return state;
 	}
@@ -52,6 +58,7 @@ function reducer(state, action) {
 
 export function StoreProvider({ children }) {
 	const [state, dispatch] = React.useReducer(reducer, initialState);
-	const value = { state, dispatch };
+	const value = React.useMemo(() => ({ state, dispatch }), [state, dispatch]);
+	console.log(value);
 	return <Store.Provider value={value}>{children}</Store.Provider>;
 }
