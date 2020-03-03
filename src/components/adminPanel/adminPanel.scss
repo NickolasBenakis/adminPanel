@@ -1,7 +1,11 @@
 .m-5-auto {
-	margin: 50px auto;
+    margin: 50px auto;
+
+    @media (max-width: 768px) {
+        margin: 1px;
+    }
 }
 
 .p-inherit {
-	padding: inherit;
+    padding: inherit;
 }
