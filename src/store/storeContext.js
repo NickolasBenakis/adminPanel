@@ -45,13 +45,6 @@ function reducer(state, action) {
 			};
 		case 'SELECT_USER':
 			return { ...state, selectedUser: action.payload };
-		case 'UPDATE_USER_DATA':
-			state.users.forEach((el, index, self) => {
-				if (el.id === action.payload.id) {
-					el[action.payload.key] = action.payload.value;
-				}
-			});
-			return { ...state };
 		default:
 			return state;
 	}
