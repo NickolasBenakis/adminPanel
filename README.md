@@ -63,6 +63,6 @@ $ npm run deploy
 
 A few optimizations have been implemented to help improve the performance of the app, including:
 
--   Used CDN cloudinary for prefeching images in order to optimize image resolution, responsiveness depending on the viewport and the device [here](https://cloudinary.com/) see more at `src/utils/handleImageUrl.js`
+-   Used CDN cloudinary for prefeching images in order to optimize image resolution, responsiveness depending on the viewport and the device [here](https://cloudinary.com/) see more at `src/utils/preFetchImg.js`
 -   Global State with React Hooks ,Context Api with redux pattern [Action,Reducer,State].
 -   React.memo and useMemo for Optimal re-rendering
