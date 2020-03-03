@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 .card {
     width: 18rem;
 }
@@ -8,7 +10,7 @@
     border: none;
 
     &:hover {
-        background-color: #e8e8e8;
+        background-color: $hoverCard;
     }
 
     &__details {
@@ -16,7 +18,7 @@
         flex-direction: column;
         justify-content: center;
 
-        @media (max-width: 768px) {
+        @media (max-width: $md) {
             display: none;
         }
     }
@@ -33,18 +35,18 @@
     display: flex;
     padding: 0;
 
-    @media (max-width: 768px) {
+    @media (max-width: $md) {
         justify-content: center;
     }
 }
 
 
 .list-group-item.active {
-    background-color: #1b68b3;
+    background-color: $activeBlue;
 }
 
 .text-muted {
-    color: darkgray !important;
+    color: $mutedText !important;
 }
 
 .word-inline {

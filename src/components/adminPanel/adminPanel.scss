@@ -1,7 +1,9 @@
+@import '../../variables.scss';
+
 .m-5-auto {
     margin: 50px auto;
 
-    @media (max-width: 768px) {
+    @media (max-width: $md) {
         margin: 1px;
     }
 }

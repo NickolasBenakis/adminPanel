@@ -1,13 +1,11 @@
+@import '../../variables.scss';
+
 .left-container {
     height: 600px;
     overflow-y: scroll;
     padding: 0;
 
-    @media (max-width: 768px) {
+    @media (max-width: $md) {
         height: 100vh;
     }
-}
-
-.list-group-item.active {
-    background-color: #1b68b3;
 }
